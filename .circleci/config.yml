@@ -50,7 +50,7 @@ jobs:
     # Exercise: Config and Deployment
     configure_infrastructure: 
       docker:
-        - image: python:3.7-alpine3.11
+        - image: cimg/python:3.10
       steps:
         - checkout
         - add_ssh_keys:
@@ -61,7 +61,7 @@ jobs:
             name: Install Ansible
             command: |
               # Install Ansible
-              apk add --update ansible
+              pip3 install ansible
         - run:
             name: Run Playbook and Configure server
             command: |
